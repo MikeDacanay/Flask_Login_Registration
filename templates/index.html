@@ -1,5 +1,6 @@
 <html>
 	<body>
+		<h1> LOGIN!</h1>
 		<form action="/log" method="post">
 			Email:
 			<input type="text" name="email_log">
@@ -7,5 +8,24 @@
 			<input type="text" name="pass_log">
 			<input type="submit" value="submit">
 		</form>
+		<h1> REGISTER! </h1>
+		<form action="/register" method="post">
+			First:
+			<input type="text" name="first_reg"><br>
+			Last:
+			<input type="text" name="last_reg"><br>
+			Email:
+			<input type="text" name="email_reg"><br>
+			Password:
+			<input type="text" name="pass_reg"><br>
+			<input type="submit" value="submit">
+		</form>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					{{message}}<br>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
 	</body>
 </html>
