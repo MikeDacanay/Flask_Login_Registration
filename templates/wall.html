@@ -3,9 +3,37 @@
 <head>
 	<title></title>
 </head>
-<body>
-	<h1>
-	THE WALLL
-	</h1>
+<body style="width: 975px">
+	<h1>THE WALLL</h1>
+	<h2>Welcome {{session['name']}}</h2>
+	<form action="/poster" method="POST">
+		Post a message:<br>
+		<input type="text" style="width: 975px; height: 200px; text-align: top" name="post_content"><br>
+		<input type="submit" value="Post a Post!">
+	</form>
+	{% for post in all_posts: %}
+		<div>
+			<h3>{{post['Name']}}</h3> 
+			<p><b>{{post['Date']}}</b></p>
+			<p>{{post['message']}}</p>
+		</div>
+		{% for comment in all_comments:%}
+			{% if comment['messages_id']==post['Message_ID']:%}
+
+			<div>
+				<p style="color:purple"><b>{{comment['Name']}}</b><p> 
+				<p style="color:purple"><b>{{comment['Date']}}</b></p>
+				<p style="color:purple">{{comment['comment']}}</p>
+			</div>
+			{% endif %}	
+		{% endfor %}
+	<form action="/commentor" method="POST">
+		<b><i>Post a comment:</i></b><br>
+		<input type="text" style="width: 975px; height: 100px" name="comment_content">
+		<br>
+		<input type="submit" value="Post Comment">
+		<input type="hidden" name="action" value={{post['Message_ID']}}>
+	</form>
+	{% endfor %}
 </body>
 </html>
