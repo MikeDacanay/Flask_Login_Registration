@@ -98,7 +98,7 @@ def post_comment():
 	data= {
 		'a':request.form['comment_content'],
 		'b':session['id'],
-		'c':request.form['action'] #IN HTML this input type is hidden
+		'c':request.form['asdfadsf'] #IN HTML this input type is hidden
 	}
 
 	mysql.query_db(query, data)

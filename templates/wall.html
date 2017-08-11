@@ -20,7 +20,7 @@
 		{% for comment in all_comments:%}
 			{% if comment['messages_id']==post['Message_ID']:%}
 
-			<div>
+			<div style="border: 1px red solid">
 				<p style="color:purple"><b>{{comment['Name']}}</b><p> 
 				<p style="color:purple"><b>{{comment['Date']}}</b></p>
 				<p style="color:purple">{{comment['comment']}}</p>
@@ -32,7 +32,7 @@
 		<input type="text" style="width: 975px; height: 100px" name="comment_content">
 		<br>
 		<input type="submit" value="Post Comment">
-		<input type="hidden" name="action" value={{post['Message_ID']}}>
+		<input type="hidden" name="asdfadsf" value={{post['Message_ID']}}>
 	</form>
 	{% endfor %}
 </body>
